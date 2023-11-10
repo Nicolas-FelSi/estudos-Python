@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<div class="container">
+    <table class="table table-hover table-bordered">
+        <thead>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Data</th>
+            <th>Status</th>
+        </thead>
+        <tbody>
+            {% for dado in tarefa %}
+            <tr>
+                <td>{{ dado.titulo }}</td>
+                <td>{{ dado.descricao }}</td>
+                <td>{{ dado.data }}</td>
+                <td>{{ dado.get_status_display }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'cadastrar_tarefa' %}" class="btn btn-primary">Cadastrar Tarefa</a>
+    
+</div>
+{% endblock %}
